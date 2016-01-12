@@ -9,11 +9,11 @@ var testOptions = {
 }
 var metaData = generator(testOptions)
 
-tap.equal(metaData.Title, testOptions.Title, 'Title is correct')
+tap.equal(metaData.parameter.Title, testOptions.Title, 'Title is correct')
 
-tap.equal(metaData.Status, testOptions.Status, 'Status is correct')
+tap.equal(metaData.parameter.Status, testOptions.Status, 'Status is correct')
 
-tap.equal(metaData.ArchiveCodes[1].ArchiveCode, testOptions.PersonNumber, 'PersonNumber is correct')
+tap.equal(metaData.parameter.ArchiveCodes[1].ArchiveCode, testOptions.PersonNumber, 'PersonNumber is correct')
 
 tap.throws(
   function () {
