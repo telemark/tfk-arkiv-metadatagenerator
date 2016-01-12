@@ -2,13 +2,8 @@
 
 var getMetadata = require('./index')
 var options = {
-  generator: 'skoleskyss'
+  generator: 'skoleskyss',
+  title: 'Skoleskyss'
 }
 
-getMetadata(options, function (error, data) {
-  if (error) {
-    console.error(error)
-  } else {
-    console.log(data)
-  }
-})
+console.log(getMetadata(options))

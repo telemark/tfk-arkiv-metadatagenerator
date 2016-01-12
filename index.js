@@ -1,13 +1,27 @@
 'use strict'
 
-function getMetadata (options, callback) {
-  if (!options) {
-    return callback(new Error('Missing required input: options'), null)
-  }
-  var generator = require('./lib/' + options.generator )
-  var meta = generator(options)
+var isFile = require('file-exists')
 
-  return callback(null, meta)
+function getMetadata (options) {
+  var generatorModule
+  var generator
+
+  if (!options) {
+    throw new Error('Missing required input: options')
+  }
+  if (!options.generator) {
+    throw new Error('Missing required input: options.generator')
+  }
+
+  generatorModule = './lib/' + options.generator
+
+  if (!isFile(generatorModule + '.js')) {
+    throw new Error('supplied generator does not exist')
+  }
+
+  generator = require(generatorModule)
+
+  return generator(options)
 }
 
 module.exports = getMetadata

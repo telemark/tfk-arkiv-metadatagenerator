@@ -36,5 +36,8 @@
     "coveralls": "^2.11.6",
     "standard": "^5.4.1",
     "tap": "^5.0.1"
+  },
+  "dependencies": {
+    "file-exists": "^1.0.0"
   }
 }

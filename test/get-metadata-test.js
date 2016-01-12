@@ -3,11 +3,33 @@
 var tap = require('tap')
 var getMetadata = require('../index')
 
-tap.test('requires an options object', function (test) {
-  var options = false
-  var expectedErrorMessage = 'Missing required input: options'
-  getMetadata(options, function (error, data) {
-    tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-    test.done()
-  })
-})
+tap.throws(
+  function () {
+    var options = false
+    getMetadata(options)
+  },
+  {message: 'Missing required input: options'},
+  'requires an options object'
+)
+
+tap.throws(
+  function () {
+    var options = {
+      generator: false
+    }
+    getMetadata(options)
+  },
+  {message: 'Missing required input: options.generator'},
+  'requires options.generator to be supplied'
+)
+
+tap.throws(
+  function () {
+    var options = {
+      generator: 'pysjepreik'
+    }
+    getMetadata(options)
+  },
+  {message: 'supplied generator does not exist'},
+  'requires generator exist'
+)
