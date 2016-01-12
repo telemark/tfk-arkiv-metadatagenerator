@@ -10,11 +10,11 @@ var testOptions = {
 }
 var metaData = getMetadata(testOptions)
 
-tap.equal(testOptions.Title, metaData.parameter.Title, 'Title is correct')
+tap.equal(testOptions.Title, metaData.data.parameter.Title, 'Title is correct')
 
-tap.equal(testOptions.Status, metaData.parameter.Status, 'Status is correct')
+tap.equal(testOptions.Status, metaData.data.parameter.Status, 'Status is correct')
 
-tap.equal(testOptions.PersonNumber, metaData.parameter.ArchiveCodes[1].ArchiveCode, 'PersonNumber is correct')
+tap.equal(testOptions.PersonNumber, metaData.data.parameter.ArchiveCodes[1].ArchiveCode, 'PersonNumber is correct')
 
 tap.throws(
   function () {

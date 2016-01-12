@@ -16,25 +16,25 @@ var testOptions = {
 }
 var metaData = generator(testOptions)
 
-tap.equal(metaData.parameter.Enterprise, testOptions.Enterprise, 'Enterprise is correct')
+tap.equal(metaData.data.parameter.Enterprise, testOptions.Enterprise, 'Enterprise is correct')
 
-tap.equal(metaData.parameter.FirstName, testOptions.FirstName, 'FirstName is correct')
+tap.equal(metaData.data.parameter.FirstName, testOptions.FirstName, 'FirstName is correct')
 
-tap.equal(metaData.parameter.MiddleName, testOptions.MiddleName, 'MiddleName is correct')
+tap.equal(metaData.data.parameter.MiddleName, testOptions.MiddleName, 'MiddleName is correct')
 
-tap.equal(metaData.parameter.LastName, testOptions.LastName, 'LastName is correct')
+tap.equal(metaData.data.parameter.LastName, testOptions.LastName, 'LastName is correct')
 
-tap.equal(metaData.parameter.ExternalId, testOptions.ExternalId, 'ExternalId is correct')
+tap.equal(metaData.data.parameter.ExternalId, testOptions.ExternalId, 'ExternalId is correct')
 
-tap.equal(metaData.parameter.Email, testOptions.Email, 'Email is correct')
+tap.equal(metaData.data.parameter.Email, testOptions.Email, 'Email is correct')
 
-tap.equal(metaData.parameter.PrivateAddress[0].StreetAddress, testOptions.StreetAddress, 'StreetAddress is correct')
+tap.equal(metaData.data.parameter.PrivateAddress[0].StreetAddress, testOptions.StreetAddress, 'StreetAddress is correct')
 
-tap.equal(metaData.parameter.PrivateAddress[0].ZipCode, testOptions.ZipCode, 'ZipCode is correct')
+tap.equal(metaData.data.parameter.PrivateAddress[0].ZipCode, testOptions.ZipCode, 'ZipCode is correct')
 
-tap.equal(metaData.parameter.PrivateAddress[0].ZipPlace, testOptions.ZipPlace, 'ZipPlace is correct')
+tap.equal(metaData.data.parameter.PrivateAddress[0].ZipPlace, testOptions.ZipPlace, 'ZipPlace is correct')
 
-tap.equal(metaData.parameter.PrivateAddress[0].Area, testOptions.Area, 'Area is correct')
+tap.equal(metaData.data.parameter.PrivateAddress[0].Area, testOptions.Area, 'Area is correct')
 
 tap.throws(
   function () {

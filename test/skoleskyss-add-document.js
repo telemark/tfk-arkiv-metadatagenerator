@@ -1,9 +1,13 @@
 'use strict'
 
 var tap = require('tap')
-var generator = require('../lib/get-case-title')
+var generator = require('../lib/skoleskyss-add-document')
 var testOptions = {
-  Title: 'Sakstittel'
+  Title: 'Sakstittel',
+  ResponsiblePersonRecno: '213419',
+  ResponsibleEnterpriseRecno: '213419',
+  PersonNumber: '111',
+  FilesTitle: 'Tmp.pdf'
 }
 var metaData = generator(testOptions)
 
