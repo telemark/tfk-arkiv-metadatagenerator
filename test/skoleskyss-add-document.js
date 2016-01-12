@@ -3,7 +3,7 @@
 var tap = require('tap')
 var generator = require('../lib/skoleskyss-add-document')
 var testOptions = {
-  Title: 'Sakstittel',
+  Title: 'Dokumenttittel',
   ResponsiblePersonRecno: '213419',
   ResponsibleEnterpriseRecno: '213419',
   PersonNumber: '111',
@@ -30,5 +30,47 @@ tap.throws(
     generator(options)
   },
   {message: 'Missing required input: options.Title'},
+  'requires options.Title to be supplied'
+)
+
+tap.throws(
+  function () {
+    var options = {
+      Title: 'Dokumenttittel',
+      ResponsiblePersonRecno: false,
+      ResponsibleEnterpriseRecno: false
+    }
+    generator(options)
+  },
+  {message: 'Missing required input: options.ResponsiblePersonRecno or ResponsibleEnterpriseRecno'},
+  'requires options.ResponsiblePersonRecno or options.ResponsibleEnterpriseRecno to be supplied'
+)
+
+tap.throws(
+  function () {
+    var options = {
+      Title: 'Dokumenttittel',
+      ResponsiblePersonRecno: '213419',
+      ResponsibleEnterpriseRecno: '',
+      PersonNumber: false
+    }
+    generator(options)
+  },
+  {message: 'Missing required input: options.PersonNumber'},
+  'requires options.PersonNumber to be supplied'
+)
+
+tap.throws(
+  function () {
+    var options = {
+      Title: 'Dokumenttittel',
+      ResponsiblePersonRecno: '213419',
+      ResponsibleEnterpriseRecno: '',
+      PersonNumber: '111',
+      FilesTitle: false
+    }
+    generator(options)
+  },
+  {message: 'Missing required input: options.FilesTitle'},
   'requires options.Title to be supplied'
 )
