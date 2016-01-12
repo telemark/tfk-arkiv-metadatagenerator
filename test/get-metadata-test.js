@@ -2,6 +2,13 @@
 
 var tap = require('tap')
 var getMetadata = require('../index')
+var testOptions = {
+  generator: 'skoleskyss',
+  title: 'Skoleskyss'
+}
+var metaData = getMetadata(testOptions)
+
+tap.equal(testOptions.title, metaData.title, 'title is correct')
 
 tap.throws(
   function () {

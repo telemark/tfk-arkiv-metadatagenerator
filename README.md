@@ -1,2 +1,3 @@
+
 # tfk-arkiv-metadatagenerator
-Generates meta data for acrhiving
+Generates meta data for archiving
