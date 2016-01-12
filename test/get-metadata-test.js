@@ -3,12 +3,15 @@
 var tap = require('tap')
 var getMetadata = require('../index')
 var testOptions = {
-  generator: 'skoleskyss',
-  title: 'Skoleskyss'
+  generator: 'skoleskyss-add-case',
+  Title: 'Skoleskyss',
+  Status: 'B'
 }
 var metaData = getMetadata(testOptions)
 
-tap.equal(testOptions.title, metaData.title, 'title is correct')
+tap.equal(testOptions.Title, metaData.Title, 'Title is correct')
+
+tap.equal(testOptions.Status, metaData.Status, 'Status is correct')
 
 tap.throws(
   function () {

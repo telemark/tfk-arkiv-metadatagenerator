@@ -1,13 +1,16 @@
 'use strict'
 
 var tap = require('tap')
-var generator = require('../lib/skoleskyss')
+var generator = require('../lib/skoleskyss-add-case')
 var testOptions = {
-  title: 'Skoleskyss'
+  Title: 'Skoleskyss',
+  Status: 'B'
 }
 var metaData = generator(testOptions)
 
-tap.equal(metaData.title, testOptions.title, 'title is correct')
+tap.equal(metaData.Title, testOptions.Title, 'Title is correct')
+
+tap.equal(metaData.Status, testOptions.Status, 'Status is correct')
 
 tap.throws(
   function () {
@@ -21,11 +24,22 @@ tap.throws(
 tap.throws(
   function () {
     var options = {
-      title: false
+      Title: false
     }
     generator(options)
   },
-  {message: 'Missing required input: options.title'},
-  'requires options.title to be supplied'
+  {message: 'Missing required input: options.Title'},
+  'requires options.Title to be supplied'
 )
 
+tap.throws(
+  function () {
+    var options = {
+      Title: 'Skoleskyss',
+      Status: false
+    }
+    generator(options)
+  },
+  {message: 'Missing required input: options.Status'},
+  'requires options.Status to be supplied'
+)
