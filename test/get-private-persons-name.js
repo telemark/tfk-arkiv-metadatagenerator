@@ -25,6 +25,6 @@ tap.throws(
     }
     generator(options)
   },
-  {message: 'Missing required input: options.Name'},
-  'requires options.Name to be supplied'
+  {message: 'Missing required input: options.Name or options.PersonalIdNumber'},
+  'requires options.Name or options.PersonalIdNumber to be supplied'
 )
