@@ -5,13 +5,16 @@ var getMetadata = require('../index')
 var testOptions = {
   generator: 'skoleskyss-add-case',
   Title: 'Skoleskyss',
-  Status: 'B'
+  Status: 'B',
+  PersonNumber: '26018645146'
 }
 var metaData = getMetadata(testOptions)
 
 tap.equal(testOptions.Title, metaData.Title, 'Title is correct')
 
 tap.equal(testOptions.Status, metaData.Status, 'Status is correct')
+
+tap.equal(testOptions.PersonNumber, metaData.ArchiveCodes[1].ArchiveCode, 'PersonNumber is correct')
 
 tap.throws(
   function () {
