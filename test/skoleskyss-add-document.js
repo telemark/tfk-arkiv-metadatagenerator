@@ -72,5 +72,5 @@ tap.throws(
     generator(options)
   },
   {message: 'Missing required input: options.FilesTitle'},
-  'requires options.Title to be supplied'
+  'requires options.FilesTitle to be supplied'
 )
