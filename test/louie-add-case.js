@@ -6,10 +6,6 @@ var testOptions = require('./data/louie-add-case-opts.json')
 
 var metaData = generator(testOptions)
 
-tap.equal(metaData.data.parameter.Title, testOptions.title, 'title is correct')
-
-tap.equal(metaData.data.parameter.UnofficialTitle, testOptions.unofficialTitle, 'unofficialTitle is correct')
-
 tap.equal(metaData.data.parameter.Status, testOptions.status, 'status is correct')
 
 tap.equal(metaData.data.parameter.ArchiveCodes[1].ArchiveCode, testOptions.personalIdNumber, 'personalIdNumber is correct')
@@ -30,21 +26,11 @@ tap.throws(
 tap.throws(
   function () {
     var options = JSON.parse(JSON.stringify(testOptions))
-    options.title = false
+    options.fullName = false
     generator(options)
   },
-  {message: 'Missing required input: options.title'},
-  'requires options.title to be supplied'
-)
-
-tap.throws(
-  function () {
-    var options = JSON.parse(JSON.stringify(testOptions))
-    options.unofficialTitle = false
-    generator(options)
-  },
-  {message: 'Missing required input: options.unofficialTitle'},
-  'requires options.unofficialTitle to be supplied'
+  {message: 'Missing required input: options.fullName'},
+  'requires options.fullName to be supplied'
 )
 
 tap.throws(
@@ -95,4 +81,33 @@ tap.throws(
   },
   {message: 'Missing required input: options.schoolOrgNumber'},
   'requires options.schoolOrgNumber to be supplied'
+)
+tap.throws(
+  function () {
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.warningType = false
+    generator(options)
+  },
+  {message: 'Missing required input: options.warningType'},
+  'requires options.warningType to be supplied'
+)
+
+tap.throws(
+  function () {
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.year = false
+    generator(options)
+  },
+  {message: 'Missing required input: options.year'},
+  'requires options.year to be supplied'
+)
+
+tap.throws(
+  function () {
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.classCode = false
+    generator(options)
+  },
+  {message: 'Missing required input: options.classCode'},
+  'requires options.classCode to be supplied'
 )
