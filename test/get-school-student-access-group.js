@@ -3,12 +3,12 @@
 var tap = require('tap')
 var generator = require('../lib/sharedFunctions/school-student-access-group')
 var testOptions = {
-  SchoolName: 'Skogmo videregående skole',
+  schoolName: 'Skogmo videregående skole',
   result: 'Elev-Skogmo'
 }
 var metaData = generator(testOptions)
 
-tap.equal(metaData, testOptions.result, 'SchoolName is correct')
+tap.equal(metaData, testOptions.result, 'schoolName is correct')
 
 tap.throws(
   function () {
@@ -22,10 +22,10 @@ tap.throws(
 tap.throws(
   function () {
     var options = {
-      SchoolName: false
+      schoolName: false
     }
     generator(options)
   },
-  {message: 'Missing required input: options.SchoolName'},
-  'requires options.SchoolName to be supplied'
+  {message: 'Missing required input: options.schoolName'},
+  'requires options.schoolName to be supplied'
 )
