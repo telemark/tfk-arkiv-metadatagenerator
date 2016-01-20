@@ -4,6 +4,7 @@ var tap = require('tap')
 var generator = require('../lib/louie-add-case')
 var testOptions = {
   Title: 'Skoleskyss',
+  UnofficialTitle: 'varsel',
   Status: 'B',
   PersonNumber: '26018645146',
   SchoolName: 'Skogmo videregående skole'
@@ -11,6 +12,8 @@ var testOptions = {
 var metaData = generator(testOptions)
 
 tap.equal(metaData.data.parameter.Title, testOptions.Title, 'Title is correct')
+
+tap.equal(metaData.data.parameter.UnofficialTitle, testOptions.UnofficialTitle, 'Title is correct')
 
 tap.equal(metaData.data.parameter.Status, testOptions.Status, 'Status is correct')
 
@@ -42,6 +45,19 @@ tap.throws(
   function () {
     var options = {
       Title: 'Skoleskyss',
+      UnofficialTitle: false
+    }
+    generator(options)
+  },
+  {message: 'Missing required input: options.UnofficialTitle'},
+  'requires options.UnofficialTitle to be supplied'
+)
+
+tap.throws(
+  function () {
+    var options = {
+      Title: 'Skoleskyss',
+      UnofficialTitle: 'Varsel',
       Status: false
     }
     generator(options)
@@ -54,6 +70,7 @@ tap.throws(
   function () {
     var options = {
       Title: 'Skoleskyss',
+      UnofficialTitle: 'Varsel',
       Status: 'B',
       PersonNumber: false
     }
@@ -67,6 +84,7 @@ tap.throws(
   function () {
     var options = {
       Title: 'Skoleskyss',
+      UnofficialTitle: 'Varsel',
       Status: 'B',
       PersonNumber: '26018645146',
       SchoolName: false
