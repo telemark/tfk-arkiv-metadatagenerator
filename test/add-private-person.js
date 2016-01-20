@@ -57,18 +57,6 @@ tap.throws(
   function () {
     var options = {
       FirstName: 'Jonas',
-      MiddleName: false
-    }
-    generator(options)
-  },
-  {message: 'Missing required input: options.MiddleName'},
-  'requires options.MiddleName to be supplied'
-)
-
-tap.throws(
-  function () {
-    var options = {
-      FirstName: 'Jonas',
       MiddleName: 'Huseby',
       LastName: false
     }
