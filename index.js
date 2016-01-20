@@ -13,7 +13,7 @@ function getMetadata (options) {
     throw new Error('Missing required input: options.generator')
   }
 
-  generatorModule = './lib/' + options.generator
+  generatorModule = __dirname + '/lib/' + options.generator
 
   if (!isFile(generatorModule + '.js')) {
     throw new Error('supplied generator does not exist')
