@@ -3,11 +3,11 @@
 var tap = require('tap')
 var generator = require('../lib/get-case-title')
 var testOptions = {
-  Title: 'Sakstittel'
+  title: 'Sakstittel'
 }
 var metaData = generator(testOptions)
 
-tap.equal(metaData.data.parameter.Title, testOptions.Title, 'Title is correct')
+tap.equal(metaData.data.parameter.Title, testOptions.title, 'title is correct')
 
 tap.throws(
   function () {
@@ -21,10 +21,10 @@ tap.throws(
 tap.throws(
   function () {
     var options = {
-      Title: false
+      title: false
     }
     generator(options)
   },
-  {message: 'Missing required input: options.Title'},
-  'requires options.Title to be supplied'
+  {message: 'Missing required input: options.title'},
+  'requires options.title to be supplied'
 )

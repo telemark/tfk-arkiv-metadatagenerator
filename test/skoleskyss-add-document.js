@@ -2,16 +2,11 @@
 
 var tap = require('tap')
 var generator = require('../lib/skoleskyss-add-document')
-var testOptions = {
-  Title: 'Dokumenttittel',
-  ResponsiblePersonRecno: '213419',
-  ResponsibleEnterpriseRecno: '213419',
-  PersonNumber: '111',
-  FilesTitle: 'Tmp.pdf'
-}
+var testOptions = require('./data/skoleskyss-add-document-opts.json')
+
 var metaData = generator(testOptions)
 
-tap.equal(metaData.data.parameter.Title, testOptions.Title, 'Title is correct')
+tap.equal(metaData.data.parameter.Title, testOptions.title, 'title is correct')
 
 tap.throws(
   function () {
@@ -24,53 +19,41 @@ tap.throws(
 
 tap.throws(
   function () {
-    var options = {
-      Title: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.title = false
     generator(options)
   },
-  {message: 'Missing required input: options.Title'},
-  'requires options.Title to be supplied'
+  {message: 'Missing required input: options.title'},
+  'requires options.title to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      Title: 'Dokumenttittel',
-      ResponsiblePersonRecno: false,
-      ResponsibleEnterpriseRecno: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.responsiblePersonRecno = false
+    options.responsibleEnterpriseRecno = false
     generator(options)
   },
-  {message: 'Missing required input: options.ResponsiblePersonRecno or ResponsibleEnterpriseRecno'},
-  'requires options.ResponsiblePersonRecno or options.ResponsibleEnterpriseRecno to be supplied'
+  {message: 'Missing required input: options.responsiblePersonRecno or responsibleEnterpriseRecno'},
+  'requires options.responsiblePersonRecno or options.responsibleEnterpriseRecno to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      Title: 'Dokumenttittel',
-      ResponsiblePersonRecno: '213419',
-      ResponsibleEnterpriseRecno: '',
-      PersonNumber: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.personNumber = false
     generator(options)
   },
-  {message: 'Missing required input: options.PersonNumber'},
-  'requires options.PersonNumber to be supplied'
+  {message: 'Missing required input: options.personNumber'},
+  'requires options.personNumber to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      Title: 'Dokumenttittel',
-      ResponsiblePersonRecno: '213419',
-      ResponsibleEnterpriseRecno: '',
-      PersonNumber: '111',
-      FilesTitle: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.filesTitle = false
     generator(options)
   },
-  {message: 'Missing required input: options.FilesTitle'},
-  'requires options.FilesTitle to be supplied'
+  {message: 'Missing required input: options.filesTitle'},
+  'requires options.filesTitle to be supplied'
 )

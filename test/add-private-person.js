@@ -2,36 +2,24 @@
 
 var tap = require('tap')
 var generator = require('../lib/add-private-person')
-var testOptions = {
-  FirstName: 'Jonas',
-  MiddleName: 'Huseby',
-  LastName: 'Enge',
-  PersonalIdNumber: '26018645146',
-  Email: 'jonas.enge@gmail.com',
-  StreetAddress: 'Grenlandsgata 35b',
-  ZipCode: '3912',
-  ZipPlace: 'Porsgrunn',
-  Area: 'Telemark'
-}
+var testOptions = require('./data/add-private-person-opts.json')
 var metaData = generator(testOptions)
 
-tap.equal(metaData.data.parameter.FirstName, testOptions.FirstName, 'FirstName is correct')
+tap.equal(metaData.data.parameter.FirstName, testOptions.firstName, 'firstName is correct')
 
-tap.equal(metaData.data.parameter.MiddleName, testOptions.MiddleName, 'MiddleName is correct')
+tap.equal(metaData.data.parameter.LastName, testOptions.lastName, 'lastName is correct')
 
-tap.equal(metaData.data.parameter.LastName, testOptions.LastName, 'LastName is correct')
+tap.equal(metaData.data.parameter.PersonalIdNumber, testOptions.personalIdNumber, 'personalIdNumber is correct')
 
-tap.equal(metaData.data.parameter.PersonalIdNumber, testOptions.PersonalIdNumber, 'PersonalIdNumber is correct')
+tap.equal(metaData.data.parameter.Email, testOptions.email, 'email is correct')
 
-tap.equal(metaData.data.parameter.Email, testOptions.Email, 'Email is correct')
+tap.equal(metaData.data.parameter.PrivateAddress[0].StreetAddress, testOptions.streetAddress, 'streetAddress is correct')
 
-tap.equal(metaData.data.parameter.PrivateAddress[0].StreetAddress, testOptions.StreetAddress, 'StreetAddress is correct')
+tap.equal(metaData.data.parameter.PrivateAddress[0].ZipCode, testOptions.zipCode, 'zipCode is correct')
 
-tap.equal(metaData.data.parameter.PrivateAddress[0].ZipCode, testOptions.ZipCode, 'ZipCode is correct')
+tap.equal(metaData.data.parameter.PrivateAddress[0].ZipPlace, testOptions.zipPlace, 'zipPlace is correct')
 
-tap.equal(metaData.data.parameter.PrivateAddress[0].ZipPlace, testOptions.ZipPlace, 'ZipPlace is correct')
-
-tap.equal(metaData.data.parameter.PrivateAddress[0].Area, testOptions.Area, 'Area is correct')
+tap.equal(metaData.data.parameter.PrivateAddress[0].Area, testOptions.area, 'area is correct')
 
 tap.throws(
   function () {
@@ -44,129 +32,80 @@ tap.throws(
 
 tap.throws(
   function () {
-    var options = {
-      FirstName: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.firstName = false
     generator(options)
   },
-  {message: 'Missing required input: options.FirstName'},
-  'requires options.FirstName to be supplied'
+  {message: 'Missing required input: options.firstName'},
+  'requires options.firstName to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      FirstName: 'Jonas',
-      MiddleName: 'Huseby',
-      LastName: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.lastName = false
     generator(options)
   },
-  {message: 'Missing required input: options.LastName'},
-  'requires options.LastName to be supplied'
+  {message: 'Missing required input: options.lastName'},
+  'requires options.lastName to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      Enterprise: '985994196',
-      FirstName: 'Jonas',
-      MiddleName: 'Huseby',
-      LastName: 'Enge',
-      PersonalIdNumber: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.personalIdNumber = false
     generator(options)
   },
-  {message: 'Missing required input: options.PersonalIdNumber'},
-  'requires options.PersonalIdNumber to be supplied'
+  {message: 'Missing required input: options.personalIdNumber'},
+  'requires options.externalId to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      Enterprise: '985994196',
-      FirstName: 'Jonas',
-      MiddleName: 'Huseby',
-      LastName: 'Enge',
-      PersonalIdNumber: '26018645146',
-      Email: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.email = false
     generator(options)
   },
-  {message: 'Missing required input: options.Email'},
-  'requires options.Email to be supplied'
+  {message: 'Missing required input: options.email'},
+  'requires options.email to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      Enterprise: '985994196',
-      FirstName: 'Jonas',
-      MiddleName: 'Huseby',
-      LastName: 'Enge',
-      PersonalIdNumber: '26018645146',
-      Email: 'jonas.enge@gmail.com',
-      StreetAddress: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.streetAddress = false
     generator(options)
   },
-  {message: 'Missing required input: options.StreetAddress'},
-  'requires options.StreetAddress to be supplied'
+  {message: 'Missing required input: options.streetAddress'},
+  'requires options.streetAddress to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      Enterprise: '985994196',
-      FirstName: 'Jonas',
-      MiddleName: 'Huseby',
-      LastName: 'Enge',
-      PersonalIdNumber: '26018645146',
-      Email: 'jonas.enge@gmail.com',
-      StreetAddress: 'Grenlandsgata 35b',
-      ZipCode: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.zipCode = false
     generator(options)
   },
-  {message: 'Missing required input: options.ZipCode'},
-  'requires options.ZipCode to be supplied'
+  {message: 'Missing required input: options.zipCode'},
+  'requires options.zipCode to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      Enterprise: '985994196',
-      FirstName: 'Jonas',
-      MiddleName: 'Huseby',
-      LastName: 'Enge',
-      PersonalIdNumber: '26018645146',
-      Email: 'jonas.enge@gmail.com',
-      StreetAddress: 'Grenlandsgata 35b',
-      ZipCode: '3912',
-      ZipPlace: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.zipPlace = false
     generator(options)
   },
-  {message: 'Missing required input: options.ZipPlace'},
-  'requires options.ZipPlace to be supplied'
+  {message: 'Missing required input: options.zipPlace'},
+  'requires options.zipPlace to be supplied'
 )
 
 tap.throws(
   function () {
-    var options = {
-      Enterprise: '985994196',
-      FirstName: 'Jonas',
-      MiddleName: 'Huseby',
-      LastName: 'Enge',
-      PersonalIdNumber: '26018645146',
-      Email: 'jonas.enge@gmail.com',
-      StreetAddress: 'Grenlandsgata 35b',
-      ZipCode: '3912',
-      ZipPlace: 'Porsgrunn',
-      Area: false
-    }
+    var options = JSON.parse(JSON.stringify(testOptions))
+    options.area = false
     generator(options)
   },
-  {message: 'Missing required input: options.Area'},
-  'requires options.Area to be supplied'
+  {message: 'Missing required input: options.area'},
+  'requires options.area to be supplied'
 )

@@ -3,11 +3,11 @@
 var tap = require('tap')
 var generator = require('../lib/get-private-persons-name')
 var testOptions = {
-  Name: 'Hermod'
+  name: 'Hermod'
 }
 var metaData = generator(testOptions)
 
-tap.equal(metaData.data.parameter.Name, testOptions.Name, 'Name is correct')
+tap.equal(metaData.data.parameter.Name, testOptions.name, 'name is correct')
 
 tap.throws(
   function () {
@@ -21,10 +21,10 @@ tap.throws(
 tap.throws(
   function () {
     var options = {
-      Name: false
+      name: false
     }
     generator(options)
   },
-  {message: 'Missing required input: options.Name or options.PersonalIdNumber'},
-  'requires options.Name or options.PersonalIdNumber to be supplied'
+  {message: 'Missing required input: options.name or options.personalIdNumber'},
+  'requires options.name or options.personalIdNumber to be supplied'
 )

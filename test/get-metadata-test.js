@@ -2,19 +2,14 @@
 
 var tap = require('tap')
 var getMetadata = require('../index')
-var testOptions = {
-  generator: 'skoleskyss-add-case',
-  Title: 'Skoleskyss',
-  Status: 'B',
-  PersonNumber: '26018645146'
-}
+var testOptions = require('./data/get-metadata-test-opts.json')
 var metaData = getMetadata(testOptions)
 
-tap.equal(testOptions.Title, metaData.data.parameter.Title, 'Title is correct')
+tap.equal(testOptions.title, metaData.data.parameter.Title, 'title is correct')
 
-tap.equal(testOptions.Status, metaData.data.parameter.Status, 'Status is correct')
+tap.equal(testOptions.status, metaData.data.parameter.Status, 'status is correct')
 
-tap.equal(testOptions.PersonNumber, metaData.data.parameter.ArchiveCodes[1].ArchiveCode, 'PersonNumber is correct')
+tap.equal(testOptions.personNumber, metaData.data.parameter.ArchiveCodes[1].ArchiveCode, 'personNumber is correct')
 
 tap.throws(
   function () {
