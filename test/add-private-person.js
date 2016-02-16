@@ -5,21 +5,21 @@ var generator = require('../lib/add-private-person')
 var testOptions = require('./data/add-private-person-opts.json')
 var metaData = generator(testOptions)
 
-tap.equal(metaData.data.parameter.FirstName, testOptions.firstName, 'firstName is correct')
+tap.equal(metaData.args.parameter.FirstName, testOptions.firstName, 'firstName is correct')
 
-tap.equal(metaData.data.parameter.LastName, testOptions.lastName, 'lastName is correct')
+tap.equal(metaData.args.parameter.LastName, testOptions.lastName, 'lastName is correct')
 
-tap.equal(metaData.data.parameter.PersonalIdNumber, testOptions.personalIdNumber, 'personalIdNumber is correct')
+tap.equal(metaData.args.parameter.PersonalIdNumber, testOptions.personalIdNumber, 'personalIdNumber is correct')
 
-tap.equal(metaData.data.parameter.Email, testOptions.email, 'email is correct')
+tap.equal(metaData.args.parameter.Email, testOptions.email, 'email is correct')
 
-tap.equal(metaData.data.parameter.PrivateAddress[0].StreetAddress, testOptions.streetAddress, 'streetAddress is correct')
+tap.equal(metaData.args.parameter.PrivateAddress[0].StreetAddress, testOptions.streetAddress, 'streetAddress is correct')
 
-tap.equal(metaData.data.parameter.PrivateAddress[0].ZipCode, testOptions.zipCode, 'zipCode is correct')
+tap.equal(metaData.args.parameter.PrivateAddress[0].ZipCode, testOptions.zipCode, 'zipCode is correct')
 
-tap.equal(metaData.data.parameter.PrivateAddress[0].ZipPlace, testOptions.zipPlace, 'zipPlace is correct')
+tap.equal(metaData.args.parameter.PrivateAddress[0].ZipPlace, testOptions.zipPlace, 'zipPlace is correct')
 
-tap.equal(metaData.data.parameter.PrivateAddress[0].Area, testOptions.area, 'area is correct')
+tap.equal(metaData.args.parameter.PrivateAddress[0].Area, testOptions.area, 'area is correct')
 
 tap.throws(
   function () {
