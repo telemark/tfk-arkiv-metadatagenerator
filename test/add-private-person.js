@@ -63,16 +63,6 @@ tap.throws(
 tap.throws(
   function () {
     var options = JSON.parse(JSON.stringify(testOptions))
-    options.email = false
-    generator(options)
-  },
-  {message: 'Missing required input: options.email'},
-  'requires options.email to be supplied'
-)
-
-tap.throws(
-  function () {
-    var options = JSON.parse(JSON.stringify(testOptions))
     options.streetAddress = false
     generator(options)
   },
