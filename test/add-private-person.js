@@ -63,16 +63,6 @@ tap.throws(
 tap.throws(
   function () {
     var options = JSON.parse(JSON.stringify(testOptions))
-    options.streetAddress = false
-    generator(options)
-  },
-  {message: 'Missing required input: options.streetAddress'},
-  'requires options.streetAddress to be supplied'
-)
-
-tap.throws(
-  function () {
-    var options = JSON.parse(JSON.stringify(testOptions))
     options.zipCode = false
     generator(options)
   },
