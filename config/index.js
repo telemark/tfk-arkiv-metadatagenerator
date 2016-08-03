@@ -7,12 +7,20 @@ var settings = {
     minelev: {
       main_responsibleEnterpriseRecno: '506',
       main_responsiblePersonRecno: '200333'
+    },
+    skoleskyss: {
+      main_responsibleEnterpriseRecno: '213419',
+      main_responsiblePersonRecno: '214853'
     }
   },
   prod: {
     minelev: {
       main_responsibleEnterpriseRecno: '506',
       main_responsiblePersonRecno: '200333'
+    },
+    skoleskyss: {
+      main_responsibleEnterpriseRecno: '213419',
+      main_responsiblePersonRecno: '214853'
     }
   }
 }
