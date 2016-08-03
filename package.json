@@ -1,110 +1,43 @@
 {
-  "_args": [
-    [
-      {
-        "name": "tfk-arkiv-metadatagenerator",
-        "raw": "tfk-arkiv-metadatagenerator@^1.0.4",
-        "rawSpec": "^1.0.4",
-        "scope": null,
-        "spec": ">=1.0.4 <2.0.0",
-        "type": "range"
-      },
-      "/home/jonas/projects/tfk-laurentius"
-    ]
-  ],
-  "_from": "tfk-arkiv-metadatagenerator@>=1.0.4 <2.0.0",
-  "_id": "tfk-arkiv-metadatagenerator@1.0.4",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/tfk-arkiv-metadatagenerator",
-  "_nodeVersion": "5.5.0",
-  "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/tfk-arkiv-metadatagenerator-1.0.4.tgz_1457433332669_0.20847184141166508"
-  },
-  "_npmUser": {
-    "email": "jonas.enge@gmail.com",
-    "name": "maccyber"
-  },
-  "_npmVersion": "3.5.3",
-  "_phantomChildren": {},
-  "_requested": {
-    "name": "tfk-arkiv-metadatagenerator",
-    "raw": "tfk-arkiv-metadatagenerator@^1.0.4",
-    "rawSpec": "^1.0.4",
-    "scope": null,
-    "spec": ">=1.0.4 <2.0.0",
-    "type": "range"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/tfk-arkiv-metadatagenerator/-/tfk-arkiv-metadatagenerator-1.0.4.tgz",
-  "_shasum": "0cb8e625198ada19ba4ff5f64bcffd9ec2f2dafb",
-  "_shrinkwrap": null,
-  "_spec": "tfk-arkiv-metadatagenerator@^1.0.4",
-  "_where": "/home/jonas/projects/tfk-laurentius",
+  "name": "tfk-arkiv-metadatagenerator",
+  "description": "Creates metadata for archiving",
+  "version": "2.0.0",
+  "license": "MIT",
   "author": {
-    "email": "geir.gasodden@pythonia.no",
     "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no",
     "url": "https://github.com/zrrrzzt"
   },
-  "bugs": {
-    "url": "http://github.com/telemark/tfk-arkiv-metadatagenerator/issues"
-  },
-  "dependencies": {
-    "file-exists": "^1.0.0"
-  },
-  "description": "Creates metadata for archiving",
-  "devDependencies": {
-    "coveralls": "^2.11.6",
-    "standard": "^5.4.1",
-    "tap": "^5.0.1"
-  },
-  "directories": {},
-  "dist": {
-    "shasum": "0cb8e625198ada19ba4ff5f64bcffd9ec2f2dafb",
-    "tarball": "https://registry.npmjs.org/tfk-arkiv-metadatagenerator/-/tfk-arkiv-metadatagenerator-1.0.4.tgz"
-  },
-  "engines": {
-    "node": ">=4.2.0"
-  },
-  "gitHead": "d87ef2d762f290f383a69a524801815e225bbb5e",
-  "homepage": "https://github.com/telemark/tfk-arkiv-metadatagenerator",
   "keywords": [
     "archive",
     "metadata",
     "tfk",
     "Telemark fylkeskommune"
   ],
-  "license": "MIT",
-  "main": "index.js",
-  "maintainers": [
-    {
-      "email": "jonas.enge@gmail.com",
-      "name": "maccyber"
-    },
-    {
-      "email": "it.info@t-fk.no",
-      "name": "telemark"
-    },
-    {
-      "email": "geir.gasodden@pythonia.no",
-      "name": "zrrrzzt"
-    }
-  ],
-  "name": "tfk-arkiv-metadatagenerator",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/telemark/tfk-arkiv-metadatagenerator.git"
+    "url": "http://github.com/telemark/tfk-arkiv-metadatagenerator.git"
   },
+  "bugs": {
+    "url": "http://github.com/telemark/tfk-arkiv-metadatagenerator/issues"
+  },
+  "homepage": "https://github.com/telemark/tfk-arkiv-metadatagenerator",
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "main": "index.js",
   "scripts": {
+    "test": "standard && tap --reporter=spec test/*.js",
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
-    "setup": "npm install && node setup.js",
-    "test": "standard && tap --reporter=spec test/*.js"
+    "setup": "npm install && node setup.js"
   },
-  "version": "1.0.4"
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "standard": "^5.4.1",
+    "tap": "^5.0.1"
+  },
+  "dependencies": {
+    "file-exists": "^1.0.0"
+  }
 }
