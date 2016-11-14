@@ -63,26 +63,6 @@ tap.throws(
 tap.throws(
   function () {
     var options = JSON.parse(JSON.stringify(testOptions))
-    options.zipCode = false
-    generator(options)
-  },
-  {message: 'Missing required input: options.zipCode'},
-  'requires options.zipCode to be supplied'
-)
-
-tap.throws(
-  function () {
-    var options = JSON.parse(JSON.stringify(testOptions))
-    options.zipPlace = false
-    generator(options)
-  },
-  {message: 'Missing required input: options.zipPlace'},
-  'requires options.zipPlace to be supplied'
-)
-
-tap.throws(
-  function () {
-    var options = JSON.parse(JSON.stringify(testOptions))
     options.area = false
     generator(options)
   },
