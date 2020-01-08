@@ -1,7 +1,7 @@
 {
   "name": "tfk-arkiv-metadatagenerator",
   "description": "Creates metadata for archiving",
-  "version": "2.0.20",
+  "version": "2.1.0",
   "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
