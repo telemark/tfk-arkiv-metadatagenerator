@@ -6,7 +6,7 @@ var settings = {
   test: {
     minelev: {
       main_responsibleEnterpriseRecno: '506',
-      main_responsiblePersonRecno: '200333'
+      main_responsiblePersonRecno: '200326'
     },
     skoleskyss: {
       main_responsibleEnterpriseRecno: '213419',
@@ -16,7 +16,7 @@ var settings = {
   prod: {
     minelev: {
       main_responsibleEnterpriseRecno: '506',
-      main_responsiblePersonRecno: '200333'
+      main_responsiblePersonRecno: '200326'
     },
     skoleskyss: {
       main_responsibleEnterpriseRecno: '213419',
