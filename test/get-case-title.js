@@ -44,4 +44,3 @@ tap.throws(
   {message: 'Missing required input: options.id'},
   'requires options.id to be supplied'
 )
-
