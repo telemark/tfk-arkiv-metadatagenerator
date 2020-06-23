@@ -17,7 +17,7 @@ tap.throws(
     var options = false
     generator(options)
   },
-  {message: 'Missing required input: options'},
+  { message: 'Missing required input: options' },
   'requires an options object'
 )
 
@@ -29,7 +29,7 @@ tap.throws(
     }
     generator(options)
   },
-  {message: 'Missing required input: options.title'},
+  { message: 'Missing required input: options.title' },
   'requires options.title to be supplied'
 )
 
@@ -41,6 +41,6 @@ tap.throws(
     }
     generator(options)
   },
-  {message: 'Missing required input: options.id'},
+  { message: 'Missing required input: options.id' },
   'requires options.id to be supplied'
 )

@@ -28,7 +28,7 @@ tap.throws(
     var options = false
     generator(options)
   },
-  {message: 'Missing required input: options'},
+  { message: 'Missing required input: options' },
   'requires an options object'
 )
 
@@ -38,7 +38,7 @@ tap.throws(
     options.enterprise = false
     generator(options)
   },
-  {message: 'Missing required input: options.enterprise'},
+  { message: 'Missing required input: options.enterprise' },
   'requires options.enterprise to be supplied'
 )
 
@@ -48,7 +48,7 @@ tap.throws(
     options.firstName = false
     generator(options)
   },
-  {message: 'Missing required input: options.firstName'},
+  { message: 'Missing required input: options.firstName' },
   'requires options.firstName to be supplied'
 )
 
@@ -58,7 +58,7 @@ tap.throws(
     options.lastName = false
     generator(options)
   },
-  {message: 'Missing required input: options.lastName'},
+  { message: 'Missing required input: options.lastName' },
   'requires options.lastName to be supplied'
 )
 
@@ -68,7 +68,7 @@ tap.throws(
     options.externalId = false
     generator(options)
   },
-  {message: 'Missing required input: options.externalId'},
+  { message: 'Missing required input: options.externalId' },
   'requires options.externalId to be supplied'
 )
 
@@ -78,7 +78,7 @@ tap.throws(
     options.email = false
     generator(options)
   },
-  {message: 'Missing required input: options.email'},
+  { message: 'Missing required input: options.email' },
   'requires options.email to be supplied'
 )
 
@@ -88,7 +88,7 @@ tap.throws(
     options.streetAddress = false
     generator(options)
   },
-  {message: 'Missing required input: options.streetAddress'},
+  { message: 'Missing required input: options.streetAddress' },
   'requires options.streetAddress to be supplied'
 )
 
@@ -98,7 +98,7 @@ tap.throws(
     options.zipCode = false
     generator(options)
   },
-  {message: 'Missing required input: options.zipCode'},
+  { message: 'Missing required input: options.zipCode' },
   'requires options.zipCode to be supplied'
 )
 
@@ -108,7 +108,7 @@ tap.throws(
     options.zipPlace = false
     generator(options)
   },
-  {message: 'Missing required input: options.zipPlace'},
+  { message: 'Missing required input: options.zipPlace' },
   'requires options.zipPlace to be supplied'
 )
 
@@ -118,6 +118,6 @@ tap.throws(
     options.area = false
     generator(options)
   },
-  {message: 'Missing required input: options.area'},
+  { message: 'Missing required input: options.area' },
   'requires options.area to be supplied'
 )
